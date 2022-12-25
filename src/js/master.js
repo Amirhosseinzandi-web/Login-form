@@ -15,9 +15,7 @@ person.addEventListener("click" , function(){
     setTimeout(()=>{
         form.classList.replace("hide" , "visible")
         form.classList.add("enter")
-        // otherUsers.classList.remove("hide")
         otherUsers.classList.replace("hide" , "visible")
-        // form.classList.remove("exit")
     },1000)
 })
 
@@ -42,13 +40,11 @@ async function getData(){
    temp = await fetch(url)
    if(!temp.ok){
     loading.innerHTML = "<img src='https://mir-s3-cdn-cf.behance.net/project_modules/disp/35771931234507.564a1d2403b3a.gif'>"
-    // https://thumbs.gfycat.com/OffensiveUnitedChanticleer-max-1mb.gif
   }
   else{
     loading.innerHTML = "<img class='hide' src='https://mir-s3-cdn-cf.behance.net/project_modules/disp/35771931234507.564a1d2403b3a.gif'>"
   }
   _data = await temp.json()
-//   console.log(temp)
    return _data
 }
 
@@ -65,16 +61,10 @@ btn.addEventListener("click" , ()=>{
         newuserval = response.results[flag].login.username
         newpassval = response.results[flag].login.password
         if((userVal.value == newuserval) && (passVal.value == newpassval)){
-            // alert("ok")
             logIn(response)
-            // userVal.value = ""
-            // passVal.value = ""
             redirect.style.transition = ".5s"
-            // redirect.classList.remove("hide")
             redirect.classList.replace("hide" , "visible")
             setTimeout(()=>{
-                // redirect.classList.remove("visible")
-                // redirect.classList.add("hide")
                 redirect.classList.replace("visible" , "hide")
             },700)
         }
